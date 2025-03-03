@@ -33,3 +33,12 @@ Handles errors gracefully with appropriate status codes
 ✅ Better error messages for invalid email or password
 ✅ Removed unnecessary console.log() for production-ready code
 ✅ Ensured password is not returned when fetching user details
+
+
+You can validate the password before saving it by ensuring it meets the following criteria:
+
+✅ Minimum length of 6 characters
+✅ Contains at least one uppercase letter
+✅ Contains at least one lowercase letter
+✅ Contains at least one digit
+✅ Contains at least one special character

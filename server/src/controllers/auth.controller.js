@@ -17,6 +17,21 @@ const filterUserData = (user) => ({
   userType: user.userType,
 });
 
+const isPasswordValid = async (enteredPassword, storedHashedPassword) => {
+  try {
+    return await bcrypt.compare(enteredPassword, storedHashedPassword);
+  } catch (error) {
+    console.error("Error comparing passwords:", error);
+    return false;
+  }
+};
+
+const isPasswordStrong = (password) => {
+  const passwordRegex =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+  return passwordRegex.test(password);
+};
+
 // User Registration
 export const registerUser = async (req, res) => {
   //   console.log("registerUser");
@@ -25,13 +40,28 @@ export const registerUser = async (req, res) => {
     const { name, email, password, userType } = req.body;
 
     if (!name || !email || !password) {
-      return res.status(400).json({ message: "All fields are required." });
+      return res.status(400).json({
+        message: "All fields are required.",
+        error: "All fields are required.",
+      });
     }
 
     // Validate email format
     const emailRegex = /^\S+@\S+\.\S+$/;
     if (!emailRegex.test(email)) {
-      return res.status(400).json({ message: "Invalid email format." });
+      return res.status(400).json({
+        message: "Invalid email format.",
+        error: "Invalid email format.",
+      });
+    }
+
+    if (!isPasswordStrong(password)) {
+      return res.status(400).json({
+        message:
+          "Password must be at least 6 characters long, with 1 uppercase letter, 1 lowercase letter, 1 digit, and 1 special character.",
+        error:
+          "Password must be at least 6 characters long, with 1 uppercase letter, 1 lowercase letter, 1 digit, and 1 special character.",
+      });
     }
 
     // Convert email to lowercase
@@ -40,10 +70,12 @@ export const registerUser = async (req, res) => {
     // Check if user already exists
     const existingUser = await User.findOne({ email: normalizedEmail });
     if (existingUser) {
-      console.log("User already exists.");
-      return res.status(400).json({ message: "User already exists." });
+      //   return res.status(400).json({ message: "User already exists." });
+      return res.status(400).json({
+        message: "User already exists.",
+        error: "User already exists.",
+      });
     }
-    console.log("registerUser");
 
     // Hash password
     // const hashedPassword = await bcrypt.hash(password, 10);
@@ -71,9 +103,10 @@ export const registerUser = async (req, res) => {
     //   user: filterUserData(newUser),
     // });
   } catch (error) {
-    console.error("Error registering user:", error);
+    console.error("Error registering user:", error.message);
     return res.status(500).json({
-      message: "Error registering user.",
+      //   message: "Error registering user.",
+      message: error.message,
       error: error.message,
     });
   }
@@ -85,7 +118,10 @@ export const loginUserWithEmail = async (req, res) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
-      return res.status(400).json({ message: "All fields are required." });
+      return res.status(400).json({
+        message: "All fields are required.",
+        error: "All fields are required",
+      });
     }
 
     // Convert email to lowercase for consistency
@@ -97,12 +133,18 @@ export const loginUserWithEmail = async (req, res) => {
     console.log({ user });
 
     if (!user) {
-      return res.status(400).json({ message: "Invalid email or password." });
+      return res.status(400).json({
+        message: "Invalid email or password.",
+        error: "Invalid email or password.",
+      });
     }
 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      return res.status(400).json({ message: "Invalid email or password." });
+      return res.status(400).json({
+        message: "Invalid email or password.",
+        error: "Invalid email or password.",
+      });
     }
 
     const token = jwt.sign({ userId: user._id }, JWT_SECRET, {
@@ -116,9 +158,11 @@ export const loginUserWithEmail = async (req, res) => {
     });
   } catch (error) {
     console.error("Error logging in:", error);
-    return res
-      .status(500)
-      .json({ message: "Error logging in.", error: error.message });
+    return res.status(500).json({
+      // message: "Error logging in.",
+      message: error.message,
+      error: error.message,
+    });
   }
 };
 
