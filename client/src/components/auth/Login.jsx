@@ -25,10 +25,12 @@ const Login = () => {
     setMessage(""); // Reset message
     try {
       const data = await loginUser(email, password);
-      localStorage.setItem("token", data.token);
-      //   console.log({data});
+      const { token, user } = data;
+      console.log({ token, user });
 
-      dispatch(authLogin(data));
+      localStorage.setItem("token", token);
+      //   console.log({data});
+      dispatch(authLogin(user));
       setMessage("✅ Login successful");
       setTimeout(() => navigate("/"), 1000); // Redirect after login
     } catch (error) {
@@ -119,7 +121,7 @@ const Login = () => {
         </form>
         <p className="text-center text-sm text-gray-700 mt-6">
           Don&apos;t have an account?{" "}
-          <a href="#" className="font-medium hover:underline">
+          <a href="/register" className="font-medium hover:underline">
             Register
           </a>
         </p>

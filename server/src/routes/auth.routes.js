@@ -9,8 +9,8 @@ import {
 const router = express.Router();
 
 // Protected Route - Login Route
-router.post("/login-user", verifyToken, loginUserWithEmail);
-router.post("/resister-user", verifyToken, registerUser);
+router.post("/register", registerUser);
+router.post("/login", loginUserWithEmail);
 router.post("/reset-password", verifyToken, resetPassword);
 
 export default router;

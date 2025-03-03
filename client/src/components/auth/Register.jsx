@@ -25,7 +25,7 @@ const Register = () => {
     try {
       await registerUser(name, email, password);
       setMessage("✅ Registration successful");
-      setTimeout(() => navigate("/login"), 1000); // Redirect to login after registration
+      //   setTimeout(() => navigate("/login"), 1000);
     } catch (error) {
       setMessage(`❌ ${error}`);
     }
@@ -121,7 +121,7 @@ const Register = () => {
             type="submit"
             className="w-full py-3 bg-white text-gray-900 font-medium rounded-lg hover:bg-gray-200"
           >
-            Login
+            Resister
           </button>
           {message && (
             <p className="mt-4 text-center text-red-600">{message}</p>
@@ -129,8 +129,8 @@ const Register = () => {
         </form>
         <p className="text-center text-sm text-gray-700 mt-6">
           Don&apos;t have an account?{" "}
-          <a href="#" className="font-medium hover:underline">
-            Register
+          <a href="/login" className="font-medium hover:underline">
+            Login
           </a>
         </p>
       </div>
