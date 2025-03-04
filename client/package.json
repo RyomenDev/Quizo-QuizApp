@@ -19,6 +19,7 @@
     "react-redux": "^9.2.0",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^7.0.2",
+    "recharts": "^2.15.1",
     "redux-persist": "^6.0.0"
   },
   "devDependencies": {
