@@ -1,43 +1,57 @@
 import PropTypes from "prop-types";
-import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
+import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 
 const QuizResult = ({ score, quizData, selectedAnswers }) => {
-  const correctAnswers = quizData.filter(
-    (q, index) => selectedAnswers[index] === q.correctAnswer
-  ).length;
-  const incorrectAnswers = quizData.length - correctAnswers;
+  const totalQuestions = quizData.length;
+  const percentage = (score / totalQuestions) * 100;
 
-  const data = [
-    { name: "Correct", value: correctAnswers, color: "#4CAF50" },
-    { name: "Incorrect", value: incorrectAnswers, color: "#F44336" },
+  // Determine performance comment
+  let performanceComment = "";
+  if (percentage >= 90) {
+    performanceComment = "Excellent! 🎉 Keep up the great work!";
+  } else if (percentage >= 75) {
+    performanceComment = "Great job! 💪 Almost perfect!";
+  } else if (percentage >= 50) {
+    performanceComment = "Good effort! 😊 Keep practicing!";
+  } else {
+    performanceComment = "Keep trying! 🔥 You’ll do better next time!";
+  }
+
+  // Data for Donut Chart
+  const chartData = [
+    { name: "Correct", value: score, color: "#4CAF50" },
+    { name: "Incorrect", value: totalQuestions - score, color: "#FF4C4C" },
   ];
 
   return (
-    <div className="text-center p-5">
+    <div className="text-center p-6">
       <h1 className="text-2xl font-bold">Quiz Completed!</h1>
       <p className="text-lg">
-        Your Score: {score} / {quizData.length}
+        Your Score: {score} / {totalQuestions}
       </p>
 
-      {/* Pie Chart */}
-      <div className="flex justify-center my-5">
-        <PieChart width={300} height={300}>
-          <Pie
-            data={data}
-            cx={150}
-            cy={150}
-            outerRadius={100}
-            fill="#8884d8"
-            dataKey="value"
-            label
-          >
-            {data.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={entry.color} />
-            ))}
-          </Pie>
-          <Tooltip />
-          <Legend />
-        </PieChart>
+      <div className="flex justify-evenly items-center">
+        {/* Performance Comment */}
+        <p className="text-xl font-semibold mt-2">{performanceComment}</p>
+
+        {/* Donut Chart */}
+        <div className="flex justify-center my-6">
+          <ResponsiveContainer width={300} height={300}>
+            <PieChart>
+              <Pie
+                data={chartData}
+                dataKey="value"
+                innerRadius={80} // Creates donut effect
+                outerRadius={120}
+                label
+              >
+                {chartData.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={entry.color} />
+                ))}
+              </Pie>
+            </PieChart>
+          </ResponsiveContainer>
+        </div>
       </div>
 
       {/* Review Answers */}

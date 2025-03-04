@@ -27,13 +27,11 @@ Handles errors gracefully with appropriate status codes
 ✅ Returned useful user details (excluding password)
 ✅ Better error handling & debugging logs
 
-
 ✅ Fixed JWT_SECRET reference in loginUserWithEmail (was using process.env.JWT_SECRET instead of conf.JWT_SECRET)
 ✅ Normalized email to lowercase in loginUserWithEmail and resetPassword
 ✅ Better error messages for invalid email or password
 ✅ Removed unnecessary console.log() for production-ready code
 ✅ Ensured password is not returned when fetching user details
-
 
 You can validate the password before saving it by ensuring it meets the following criteria:
 
@@ -42,7 +40,6 @@ You can validate the password before saving it by ensuring it meets the followin
 ✅ Contains at least one lowercase letter
 ✅ Contains at least one digit
 ✅ Contains at least one special character
-
 
 ✨ Features:
 ✅ Background Image Slider
@@ -72,3 +69,9 @@ New Features Added:
 ✅ Ensures correct data types and structure
 ✅ Prevents potential runtime errors
 ✅ Improves maintainability and debugging
+
+Features Added:
+✅ Performance Comment: Changes based on the score percentage.
+✅ Pie Chart: Shows correct vs. incorrect answers.
+✅ Individual Question Review: Displays user's selected answers with correct ones.
+✅ Styled Components: Responsive design using Tailwind CSS classes.
