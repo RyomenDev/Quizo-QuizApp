@@ -1,18 +1,13 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { login as authLogin } from "../../store/authSlice";
-import {
-  RiUser3Line,
-  RiLock2Line,
-  RiEyeOffLine,
-  RiEyeLine,
-} from "react-icons/ri";
+import { RiUser3Line, RiLock2Line } from "react-icons/ri";
 import bgImage from "../../assets/auth-bg.png";
 import { loginUser } from "../../api";
 import { useNavigate } from "react-router-dom";
+import { InputField, PasswordField } from "../../utils";
 
 const Login = () => {
-  const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
@@ -32,14 +27,10 @@ const Login = () => {
       //   console.log({data});
       dispatch(authLogin(user));
       setMessage("✅ Login successful");
-      setTimeout(() => navigate("/"), 1000); // Redirect after login
+      setTimeout(() => navigate("/"), 1000);
     } catch (error) {
       setMessage(`❌ ${error}`);
     }
-  };
-
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
   };
 
   return (
@@ -58,43 +49,29 @@ const Login = () => {
         <form onSubmit={handleLogin} className="space-y-4">
           <div className="space-y-6 mb-6">
             {/* Email input */}
-            <div className="flex items-center border-b-2 border-white pb-2">
-              <RiUser3Line className="text-gray-900 text-xl" />
-              <div className="w-full relative">
-                <input
-                  type="email"
-                  id="login-email"
-                  required
-                  placeholder="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full bg-transparent text-gray-900 px-2 py-2 placeholder-slate-700 focus:outline-none"
-                />
-              </div>
-            </div>
+            <InputField
+              type="email"
+              name="email"
+              placeholder="email"
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+              Icon={<RiUser3Line />}
+              required={true}
+            />
 
             {/* Password input */}
-            <div className="flex items-center border-b-2 border-white pb-2 relative">
-              <RiLock2Line className="text-gray-900 text-xl" />
-              <div className="w-full relative">
-                <input
-                  type={showPassword ? "text" : "password"}
-                  id="login-pass"
-                  required
-                  placeholder="Password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="w-full bg-transparent text-gray-900 px-2 py-2 placeholder-slate-700 focus:outline-none"
-                />
-                <button
-                  type="button"
-                  onClick={togglePasswordVisibility}
-                  className="absolute right-0 top-2 text-black text-xl focus:outline-none"
-                >
-                  {showPassword ? <RiEyeLine /> : <RiEyeOffLine />}
-                </button>
-              </div>
-            </div>
+            <PasswordField
+              name="Password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+              showChecklist={false}
+              Icon={<RiLock2Line />}
+            />
           </div>
 
           <div className="flex items-center justify-between mb-6">

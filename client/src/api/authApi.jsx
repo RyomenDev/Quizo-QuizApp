@@ -18,19 +18,19 @@ export const loginUser = async (email, password) => {
 };
 
 export const registerUser = async (name, email, password) => {
-  //   console.log({ name, email, password });
-  try {
-    const response = await axios.post(`${API_BASE_URL}/register`, {
-      name,
-      email,
-      password,
-    });
-    console.log({ response });
+  console.log({ name, email, password });
+  //   try {
+  //     const response = await axios.post(`${API_BASE_URL}/register`, {
+  //       name,
+  //       email,
+  //       password,
+  //     });
+  //     console.log({ response });
 
-    // return response.data;
-  } catch (error) {
-    let data = error.response.data;
-    console.log({ data });
-    throw error.response.data.message || "Registration failed";
-  }
+  //     // return response.data;
+  //   } catch (error) {
+  //     let data = error.response.data;
+  //     console.log({ data });
+  //     throw error.response.data.message || "Registration failed";
+  //   }
 };

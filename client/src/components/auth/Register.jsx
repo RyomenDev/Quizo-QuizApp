@@ -1,38 +1,58 @@
 import { useState } from "react";
 import { registerUser } from "../../api";
-import {
-  RiUser3Line,
-  RiLock2Line,
-  RiEyeOffLine,
-  RiEyeLine,
-} from "react-icons/ri";
+import { RiUser3Line, RiLock2Line } from "react-icons/ri";
 import bgImage from "../../assets/auth-bg.png";
 import { useNavigate } from "react-router-dom";
+import {
+  InputField,
+  PasswordField,
+  ValidatePassword,
+  ValidateEmail,
+} from "../../utils";
 
 const Register = () => {
-  const [showPassword, setShowPassword] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState("");
+  const [errors, setErrors] = useState({});
+  const [isChecked, setIsChecked] = useState(false);
   const navigate = useNavigate();
+
+  const validateForm = () => {
+    const errors = {};
+    if (!name.trim()) errors.name = "Name is required.";
+    if (!ValidateEmail(email)) errors.email = "Invalid email format.";
+    const passwordValidation = ValidatePassword(password);
+    if (!passwordValidation.isValid) {
+      errors.password = "Password must meet security criteria.";
+    }
+    if (password !== confirmPassword)
+      errors.confirmPassword = "Passwords do not match.";
+
+    setErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
 
   const handleRegister = async (e) => {
     e.preventDefault();
     // console.log({ name,email, password });
-
-    setMessage(""); // Reset message
+    setMessage("");
+    if (!validateForm()) {
+      return;
+    }
     try {
       await registerUser(name, email, password);
       setMessage("✅ Registration successful");
-      //   setTimeout(() => navigate("/login"), 1000);
+      setTimeout(() => navigate("/login"), 1000);
     } catch (error) {
       setMessage(`❌ ${error}`);
     }
   };
 
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
+  const handleCheckboxChange = () => {
+    setIsChecked(!isChecked);
   };
 
   return (
@@ -45,81 +65,113 @@ const Register = () => {
       />
 
       <div className="relative bg-white/10 border-2 border-white mx-6 p-8 rounded-xl backdrop-blur-md sm:w-[400px] sm:p-12">
-        <h1 className="text-center text-2xl font-medium text-gray-900 mb-8">
+        <h1 className="text-center text-3xl font-medium text-gray-900 mb-8">
           Register
         </h1>
         <form onSubmit={handleRegister} className="space-y-4">
           <div className="space-y-6 mb-6">
             {/* Name input */}
-            <div className="flex items-center border-b-2 border-white pb-2">
-              <RiUser3Line className="text-gray-900 text-xl" />
-              <div className="w-full relative">
-                <input
-                  type="text"
-                  placeholder="Name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  required
-                  className="w-full bg-transparent text-gray-900 px-2 py-2 placeholder-slate-700 focus:outline-none"
-                />
-              </div>
-            </div>
+            <InputField
+              type="text"
+              name="name"
+              placeholder="Name"
+              value={name}
+              onChange={(e) => {
+                setName(e.target.value);
+                setErrors((prevErrors) => ({ ...prevErrors, name: "" }));
+              }}
+              required={true}
+              error={errors.name}
+              Icon={<RiUser3Line />}
+            />
 
             {/* Email input */}
-            <div className="flex items-center border-b-2 border-white pb-2">
-              <RiUser3Line className="text-gray-900 text-xl" />
-              <div className="w-full relative">
-                <input
-                  type="email"
-                  id="login-email"
-                  required
-                  placeholder="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full bg-transparent text-gray-900 px-2 py-2 placeholder-slate-700 focus:outline-none"
-                />
-              </div>
-            </div>
+            <InputField
+              type="email"
+              name="email"
+              placeholder="email"
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+                setErrors((prevErrors) => ({ ...prevErrors, email: "" }));
+              }}
+              error={errors.email}
+              Icon={<RiUser3Line />}
+              required={true}
+            />
 
             {/* Password input */}
-            <div className="flex items-center border-b-2 border-white pb-2 relative">
-              <RiLock2Line className="text-gray-900 text-xl" />
-              <div className="w-full relative">
-                <input
-                  type={showPassword ? "text" : "password"}
-                  id="login-pass"
-                  required
-                  placeholder="Password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="w-full bg-transparent text-gray-900 px-2 py-2 placeholder-slate-700 focus:outline-none"
-                />
-                <button
-                  type="button"
-                  onClick={togglePasswordVisibility}
-                  className="absolute right-0 top-2 text-black text-xl focus:outline-none"
-                >
-                  {showPassword ? <RiEyeLine /> : <RiEyeOffLine />}
-                </button>
-              </div>
-            </div>
+
+            <PasswordField
+              name="password"
+              placeholder="Create Password"
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+                setErrors((prevErrors) => ({ ...prevErrors, password: "" }));
+              }}
+              error={errors.password}
+              showChecklist={true}
+              required={true}
+              Icon={<RiLock2Line />}
+            />
+            {/* Confirm-Password input */}
+            <PasswordField
+              name="confirmPassword"
+              placeholder="Confirm Password"
+              value={confirmPassword}
+              onChange={(e) => {
+                setConfirmPassword(e.target.value);
+                setErrors((prevErrors) => ({
+                  ...prevErrors,
+                  confirmPassword: "",
+                }));
+              }}
+              error={errors.confirmPassword}
+              showChecklist={false}
+              Icon={<RiLock2Line />}
+            />
           </div>
 
-          <div className="flex items-center justify-between mb-6">
-            <div className="flex items-center gap-2">
-              <input type="checkbox" id="login-check" className="w-4 h-4" />
-              <label htmlFor="login-check" className="text-sm text-slate-700">
-                Remember me
-              </label>
-            </div>
-            <a href="#" className="text-sm text-slate-700 hover:underline">
-              Forgot Password?
-            </a>
+          <a
+            href="#"
+            className="text-sm text-slate-700 hover:underline flex justify-end"
+          >
+            Forgot Password?
+          </a>
+          <div className="flex items-center gap-2">
+            {/* Consent checkbox */}
+
+            <label className="flex items-center space-x-2">
+              <input
+                type="checkbox"
+                checked={isChecked}
+                onChange={handleCheckboxChange}
+                className=""
+              />
+
+              <span className="">
+                By continuing, you agree to Quizo's{" "}
+                <a href="#" className="text-blue-500">
+                  Terms of Service
+                </a>{" "}
+                &{" "}
+                <a href="#" className="text-blue-500">
+                  Privacy Policy
+                </a>
+                .
+              </span>
+            </label>
           </div>
 
           <button
             type="submit"
-            className="w-full py-3 bg-white text-gray-900 font-medium rounded-lg hover:bg-gray-200"
+            className={`w-full py-3 font-medium rounded-lg ${
+              isChecked
+                ? "bg-white text-gray-900 hover:bg-gray-200"
+                : "bg-gray-200 cursor-not-allowed"
+            }`}
+            disabled={!isChecked}
           >
             Resister
           </button>
@@ -128,7 +180,7 @@ const Register = () => {
           )}
         </form>
         <p className="text-center text-sm text-gray-700 mt-6">
-          Don&apos;t have an account?{" "}
+          Have an account?{" "}
           <a href="/login" className="font-medium hover:underline">
             Login
           </a>
