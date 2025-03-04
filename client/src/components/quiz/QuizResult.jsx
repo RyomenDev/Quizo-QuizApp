@@ -25,7 +25,7 @@ const QuizResult = ({ score, quizData, selectedAnswers }) => {
 
   return (
     <div className="text-center p-6">
-      <h1 className="text-2xl font-bold">Quiz Completed!</h1>
+      <h1 className="text-3xl font-bold">Quiz Completed!</h1>
       <p className="text-lg">
         Your Score: {score} / {totalQuestions}
       </p>
@@ -55,8 +55,8 @@ const QuizResult = ({ score, quizData, selectedAnswers }) => {
       </div>
 
       {/* Review Answers */}
-      <h2 className="text-xl font-semibold mt-4">Review Answers:</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+      <h2 className="text-2xl font-semibold mt-4">Review Answers:</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 ">
         {quizData.map((q, index) => (
           <div key={index} className="p-4 border rounded-lg shadow-md bg-white">
             <p className="font-medium">{q.question}</p>
