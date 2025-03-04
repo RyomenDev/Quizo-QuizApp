@@ -50,3 +50,15 @@ You can validate the password before saving it by ensuring it meets the followin
 ✅ Smooth Animations with Framer Motion
 ✅ Beautiful Gradient & Glassmorphism UI
 ✅ Responsive Design for All Devices
+
+Features Added:
+✅ Timer for each question (30 seconds per question).
+✅ Multiple-choice selection with answer tracking.
+✅ Final score calculation with correct and wrong answers displayed.
+✅ Navigation between questions (Next/Submit button).
+
+New Features Added:
+✅ Start Page with quiz instructions before beginning.
+✅ Displays number of questions and time per question.
+✅ "Start Quiz" button to begin.
+✅ Quiz begins only after clicking "Start Quiz".
