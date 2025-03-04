@@ -62,3 +62,13 @@ New Features Added:
 ✅ Displays number of questions and time per question.
 ✅ "Start Quiz" button to begin.
 ✅ Quiz begins only after clicking "Start Quiz".
+
+🔹 Welcome Page: Displays number of questions, time per question, and rules.
+🔹 "Start Quiz" Button: Users must click it to begin.
+🔹 Prevents users from seeing answers before starting.
+🔹 Consistent UI with Tailwind CSS.
+
+✅ prop-types validation in every component
+✅ Ensures correct data types and structure
+✅ Prevents potential runtime errors
+✅ Improves maintainability and debugging

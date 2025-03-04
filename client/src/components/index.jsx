@@ -5,6 +5,7 @@ import Login from "./auth/Login.jsx";
 import Register from "./auth/Register.jsx";
 import Profile from "./auth/Profile.jsx";
 import ResetPassword from "./auth/ResetPassword";
+import Quiz from "./quiz";
 
 export {
   SideHeader,
@@ -14,4 +15,5 @@ export {
   Register,
   Profile,
   ResetPassword,
+  Quiz,
 };
