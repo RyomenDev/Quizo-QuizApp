@@ -10,7 +10,7 @@ const router = express.Router();
 
 // Protected Route - Login Route
 router.post("/register", registerUser);
-router.post("/login", loginUserWithEmail);
-router.post("/reset-password", verifyToken, resetPassword);
+router.get("/login", loginUserWithEmail);
+router.post("/resetpassword", verifyToken, resetPassword);
 
 export default router;

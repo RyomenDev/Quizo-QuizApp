@@ -22,15 +22,11 @@ const Layout = () => {
               onClick={() => setIsSidebarOpen(!isSidebarOpen)}
               className="lg:hidden fixed top-6 left-0 bg-slate-600 text-white p-2 rounded-sm z-50 shadow-lg focus:outline-none"
             >
-              {
-                //   isSidebarOpen ? (
-                <button className="text-white focus:outline-none">
-                  <span className="block w-6 h-1 bg-white mb-2"></span>
-                  <span className="block w-6 h-1 bg-white mb-2"></span>
-                  <span className="block w-6 h-1 bg-white"></span>
-                </button>
-                //   ) : null
-              }
+              <div className="text-white focus:outline-none">
+                <span className="block w-6 h-1 bg-white mb-2"></span>
+                <span className="block w-6 h-1 bg-white mb-2"></span>
+                <span className="block w-6 h-1 bg-white"></span>
+              </div>
             </button>
 
             {/* Sidebar */}

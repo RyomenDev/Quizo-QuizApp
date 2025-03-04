@@ -4,7 +4,8 @@ import conf from "../conf/conf.js";
 const JWT_SECRET = conf.JWT_SECRET;
 
 export async function verifyToken(req, res, next) {
-  //   console.log("req.headers", req.headers);
+  //   console.log("req.headers");
+
   const authHeader = req.header("Authorization");
 
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
@@ -15,6 +16,8 @@ export async function verifyToken(req, res, next) {
 
   try {
     const decoded = jwt.verify(token, JWT_SECRET);
+    // console.log({ decoded });
+
     req.user = decoded; // Attach decoded user info to request
     next();
   } catch (err) {

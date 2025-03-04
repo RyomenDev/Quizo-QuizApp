@@ -42,3 +42,11 @@ You can validate the password before saving it by ensuring it meets the followin
 ✅ Contains at least one lowercase letter
 ✅ Contains at least one digit
 ✅ Contains at least one special character
+
+
+✨ Features:
+✅ Background Image Slider
+✅ Dynamic Sliding Questions
+✅ Smooth Animations with Framer Motion
+✅ Beautiful Gradient & Glassmorphism UI
+✅ Responsive Design for All Devices

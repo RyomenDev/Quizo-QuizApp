@@ -1,0 +1,57 @@
+[
+    {
+        "id": 1,
+        "question": "What is the capital of France?",
+        "choices": [
+            "Berlin",
+            "Madrid",
+            "Paris",
+            "Rome"
+        ],
+        "correctAnswer": "Paris"
+    },
+    {
+        "id": 2,
+        "question": "Which programming language is known for web development?",
+        "choices": [
+            "Python",
+            "Java",
+            "C++",
+            "JavaScript"
+        ],
+        "correctAnswer": "JavaScript"
+    },
+    {
+        "id": 3,
+        "question": "What is the powerhouse of the cell?",
+        "choices": [
+            "Nucleus",
+            "Mitochondria",
+            "Ribosome",
+            "Golgi apparatus"
+        ],
+        "correctAnswer": "Mitochondria"
+    },
+    {
+        "id": 4,
+        "question": "Which planet is known as the Red Planet?",
+        "choices": [
+            "Earth",
+            "Mars",
+            "Jupiter",
+            "Saturn"
+        ],
+        "correctAnswer": "Mars"
+    },
+    {
+        "id": 5,
+        "question": "Who wrote 'Hamlet'?",
+        "choices": [
+            "Charles Dickens",
+            "William Shakespeare",
+            "Mark Twain",
+            "J.K. Rowling"
+        ],
+        "correctAnswer": "William Shakespeare"
+    }
+]

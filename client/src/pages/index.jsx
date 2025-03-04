@@ -1,6 +1,5 @@
 import Home from "./Home.jsx";
-import Login from "./Login";
-import Register from "./Register";
 import Profile from "./Profile.jsx";
+import Quiz from "./Quiz.jsx";
 
-export { Home, Login, Register, Profile };
+export { Home, Profile, Quiz };

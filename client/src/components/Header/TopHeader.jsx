@@ -24,7 +24,9 @@ const Header = () => {
   };
 
   return (
-    <header className="sticky top-0 left-0 w-full z-50 flex flex-wrap justify-between items-center py-6 px-6 bg-gradient-to-b from-slate-900 via-slate-900 to-slate-400  text-white shadow-lg border-b-4 border-slate-400 pl-12">
+    <header
+      className="sticky top-0 left-0 w-full z-50 flex flex-wrap justify-between items-center py-6 px-6 bg-gradient-to-b from-[#4E2A1E] via-[#5C4033] to-[#3B2F2F] text-white shadow-lg pl-12"
+    >
       {" "}
       {/*bg-gradient-to-b from-slate-900 to-slate-400*/}
       {/* Logo Section */}
@@ -93,7 +95,7 @@ const Header = () => {
           ) : (
             <div className="flex flex-col gap-3 w-full items-center md:flex-row md:gap-4">
               <LoginButton />
-              <RegisterButton />
+              {/* <RegisterButton /> */}
             </div>
           )}
         </div>

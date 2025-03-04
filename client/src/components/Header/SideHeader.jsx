@@ -29,7 +29,7 @@ const SideHeader = () => {
     //   style={{ backgroundImage: `url(${sideHeaderbg})` }}
     // >
     <header
-      className="h-screen p-4 bg-gray-100 shadow-lg bg-cover bg-center"
+      className="h-screen p-4 bg-gray-100 shadow-lg bg-cover bg-center bg-gradient-to-b from-[#4E2A1E] via-[#5C4033] to-[#3B2F2F]"
       style={{
         backgroundImage: `url(${sideHeaderbg})`,
         //

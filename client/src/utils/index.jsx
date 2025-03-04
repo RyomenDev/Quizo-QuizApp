@@ -1,4 +1,4 @@
-import Button from "./Button.jsx";
+
 import LogoutBtn from "./LogoutBtn.jsx";
 import LoginButton from "./LoginBtn.jsx";
 import RegisterButton from "./Registerbtn.jsx";
@@ -10,7 +10,6 @@ import PasswordChecklist from "./PasswordChecklist.jsx";
 import { ValidatePassword, ValidateEmail } from "./Validations.jsx";
 
 export {
-  Button,
   LogoutBtn,
   LoginButton,
   RegisterButton,

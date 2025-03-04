@@ -1,50 +1,80 @@
-import { useNavigate } from "react-router-dom";
-import homeBg from "../assets/Home-bg.png";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-const Home = () => {
-  const navigate = useNavigate();
+const quizImages = [
+  "/images/quiz1.png",
+  "/images/quiz2.png",
+  "/images/quiz3.png",
+];
+
+const questions = [
+  "Ready to test your knowledge?",
+  "Challenge yourself with exciting quizzes!",
+  "Compete, learn, and have fun!",
+];
+
+export default function HomePage() {
+  const [currentQuestion, setCurrentQuestion] = useState(0);
 
   return (
-    <div
-      className="h-screen flex items-center justify-center bg-cover bg-center"
-      style={{ backgroundImage: `url(${homeBg})` }}
-    >
-      <div className="bg-white/20 backdrop-blur-md shadow-xl rounded-lg p-10 max-w-3xl w-full text-center border border-white/30">
-        {/* Title Section */}
-        <h1 className="text-5xl font-extrabold text-white mb-4 drop-shadow-md">
-          Welcome
-        </h1>
-        <p className="text-slate-800 text-lg mb-6">
-          Build something amazing with our powerful platform.
-        </p>
+    <div className="relative w-full h-screen text-white overflow-hidden">
+      {/* Background Image Slider */}
+      <Carousel
+        autoPlay
+        infiniteLoop
+        showThumbs={false}
+        showStatus={false}
+        interval={3000}
+        className="absolute top-0 left-0 w-full h-full z-0"
+      >
+        {quizImages.map((image, index) => (
+          <div key={index} className="w-full h-screen">
+            <img
+              src={image}
+              alt="Quiz Background"
+              className="w-full h-full object-cover opacity-80"
+            />
+          </div>
+        ))}
+      </Carousel>
 
-        {/* Call to Action Buttons */}
-        <div className="flex flex-col sm:flex-row justify-center gap-4">
-          <button
-            onClick={() => navigate("/get-started")}
-            className="px-6 py-3 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition font-semibold"
-          >
-            Get Started
-          </button>
-          <button
-            onClick={() => navigate("/learn-more")}
-            className="px-6 py-3 bg-white/30 text-white rounded-lg shadow-md hover:bg-white/40 transition font-semibold border border-white/40"
-          >
-            Learn More
-          </button>
-        </div>
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center px-4">
+        <motion.h1
+          className="text-5xl md:text-7xl font-bold"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          Quizo
+        </motion.h1>
 
-        {/* Decorative Image Section */}
-        <div className="mt-8">
-          <img
-            src="https://via.placeholder.com/600x300"
-            alt="Placeholder"
-            className="rounded-lg shadow-lg w-full border border-white/20"
-          />
-        </div>
+        {/* Sliding Questions */}
+        <motion.p
+          key={currentQuestion}
+          className="text-lg md:text-2xl mt-4"
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -50 }}
+          transition={{ duration: 1 }}
+        >
+          {questions[currentQuestion]}
+        </motion.p>
+
+        {/* Start Button */}
+        <motion.div
+          className="mt-6"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+        >
+          <button className="px-6 py-3 text-lg bg-yellow-500 hover:bg-yellow-600 shadow-xl text-white rounded-md">
+            Start Quiz
+          </button>
+        </motion.div>
       </div>
     </div>
   );
-};
-
-export default Home;
+}

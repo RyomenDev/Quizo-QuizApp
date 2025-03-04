@@ -5,12 +5,11 @@ const filterUserData = (user) => {
   return {
     name: user.name,
     email: user.email,
-    age: user.age,
     gender: user.gender,
     address: user.address,
     phone: user.phone,
+    userType: user.userType,
     picture: user.picture,
-    premiumMember: user.premiumMember,
   };
 };
 
@@ -21,10 +20,13 @@ const handleError = (res, error) => {
 };
 
 const UserViewProfileController = async (req, res) => {
-  const userId = req.user.uid;
+  const userId = req.user.userId;
+  //   console.log({ userId });
 
   try {
-    const user = await User.findOne({ uid: userId });
+    const user = await User.findOne({ _id: userId });
+    // console.log({ user });
+
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
@@ -79,4 +81,3 @@ const UserUpdateProfileController = async (req, res) => {
 };
 
 export { UserViewProfileController, UserUpdateProfileController };
-

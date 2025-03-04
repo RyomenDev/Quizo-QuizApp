@@ -130,7 +130,7 @@ export const loginUserWithEmail = async (req, res) => {
 
     const user = await User.findOne({ email: normalizedEmail });
 
-    console.log({ user });
+    // console.log({ user });
 
     if (!user) {
       return res.status(400).json({
@@ -168,29 +168,44 @@ export const loginUserWithEmail = async (req, res) => {
 
 // Password Reset
 export const resetPassword = async (req, res) => {
-  try {
-    const { email, newPassword } = req.body;
+  //   console.log("Reset-Password");
 
-    if (!email || !newPassword) {
+  try {
+    const { newPassword } = req.body;
+    const userId = req.user.userId;
+
+    // console.log({ userId, newPassword });
+
+    if (!newPassword) {
       return res.status(400).json({ message: "All fields are required." });
     }
 
-    // Convert email to lowercase
-    const normalizedEmail = email.toLowerCase();
-
-    const user = await User.findOne({ email: normalizedEmail });
+    const user = await User.findOne({ _id: userId });
+    // console.log({ user });
 
     if (!user) {
       return res.status(400).json({ message: "User not found." });
     }
 
-    const hashedPassword = await bcrypt.hash(newPassword, 10);
-    user.password = hashedPassword;
+    if (!isPasswordStrong(newPassword)) {
+      return res.status(400).json({
+        message:
+          "Password must be at least 6 characters long, with 1 uppercase letter, 1 lowercase letter, 1 digit, and 1 special character.",
+        error:
+          "Password must be at least 6 characters long, with 1 uppercase letter, 1 lowercase letter, 1 digit, and 1 special character.",
+      });
+    }
+
+    // const hashedPassword = await bcrypt.hash(newPassword, 10);
+    // user.password = hashedPassword;
+
+    // console.log({ user });
+    user.password = newPassword;
     await user.save();
 
     return res.status(200).json({ message: "Password reset successfully." });
   } catch (error) {
-    console.error("Error resetting password:", error);
+    console.error("Error resetting password:", error.message);
     return res
       .status(500)
       .json({ message: "Error resetting password.", error: error.message });
