@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
-import HeaderData from "../../data/HeaderData";
+import HeaderData from "../../data/HeaderData.jsx";
 import sideHeaderbg from "../../assets/sideHeaderbg-bg.png";
 
 const SideHeader = () => {
