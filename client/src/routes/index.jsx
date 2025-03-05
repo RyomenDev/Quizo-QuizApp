@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 import Layout from "../Layout";
 import { Home, Profile, Quiz } from "../pages";
-import { ResetPassword, Login, Register } from "../components";
+import { ResetPassword, Login, Register, Questions } from "../components";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -17,6 +17,7 @@ const router = createBrowserRouter(
         <Route path="profile" element={<Profile />} />
         <Route path="resetPassword" element={<ResetPassword />} />
         <Route path="quiz" element={<Quiz />} />
+        <Route path="questions" element={<Questions />} />
       </Route>
     </Route>
   )

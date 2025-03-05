@@ -6,6 +6,7 @@ import Register from "./auth/Register.jsx";
 import Profile from "./auth/Profile.jsx";
 import ResetPassword from "./auth/ResetPassword";
 import Quiz from "./quiz";
+import Questions from "./QuizQuestions"
 
 export {
   SideHeader,
@@ -16,4 +17,5 @@ export {
   Profile,
   ResetPassword,
   Quiz,
+  Questions,
 };
