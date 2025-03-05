@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { fetchUserProfile } from "../../api";
 import { LogoutBtn } from "../../utils";
 import bgImage from "../../assets/auth-bg.png";
+import ProfileShimmer from "../../shimmer/ProfileShimmer";
 import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 
 const UserProfile = () => {
@@ -31,8 +32,9 @@ const UserProfile = () => {
 
   const handleResetPassword = () => navigate("/resetPassword");
 
-  if (loading)
-    return <div className="text-center text-lg font-semibold">Loading...</div>;
+  //   if (loading)
+  //     return <div className="text-center text-lg font-semibold">Loading...</div>;
+  if (loading) return <ProfileShimmer />;
 
   if (!user)
     return (
