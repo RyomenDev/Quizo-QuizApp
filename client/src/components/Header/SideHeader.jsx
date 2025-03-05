@@ -45,7 +45,9 @@ const SideHeader = ({ isOpen, toggleSidebar }) => {
 
       {/* Sidebar - Hidden on Mobile until opened */}
       <aside
-        className={`absolute top-0 left-0 h-screen bg-black transition-all duration-300 shadow-lg overflow-hidden ${
+        className={`${
+          isMobile ? "absolute top-0 left-0 h-screen" : "relative h-full"
+        } bg-black transition-all duration-300 shadow-lg overflow-hidden ${
           isMobile && !mobileOpen
             ? "-translate-x-full"
             : expanded
