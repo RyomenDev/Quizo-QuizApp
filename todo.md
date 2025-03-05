@@ -6,7 +6,8 @@
 #### Frontend (React.js + Redux)
 
 - [x] **Authentication Pages** (Login, Register)
-- [ ] **Admin Dashboard** (Add/Edit/Delete Quiz Questions)
+- [x] **Dashboard** (Add/Edit/Delete Quiz Questions)
+- [ ] **Dashboard** (Delete Quiz Questions) : server completed , but restricting in client side 
 - [x] **Quiz Page** (Users can take the quiz with a timer)
 - [x] **Results Page** (Display correct/wrong answers, score analysis)
 - [x] **State Management** (Redux for storing user session, quiz state)

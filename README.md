@@ -92,6 +92,15 @@ The **Online Quiz Platform** is a full-stack web application designed for quiz c
 - ✅ Better error handling & debugging logs
 - ✅ Ensured password is not returned when fetching user details
 
+### ✨ Added Security Features (server):
+
+- ✅ helmet: Adds essential security headers automatically..
+- ✅ hsts (Strict Transport Security): Ensures HTTPS-only connections.
+- ✅ x-powered-by disabled: Hides Express framework info.
+- ✅ x-content-type-options: Prevents MIME-sniffing attacks.
+- ✅ x-xss-protection: Enables browser-based XSS protection.
+- ✅ referrer-policy: Restricts referrer data sharing, to limit referrer leakage.
+
 ### **Code Quality**
 
 - **Modular Architecture**: Clean and maintainable codebase following best practices.
