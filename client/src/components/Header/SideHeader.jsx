@@ -1,12 +1,21 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
-import { FiHome, FiBook, FiVideo, FiPhone, FiSettings } from "react-icons/fi";
+import PropTypes from "prop-types";
+import {
+  FiHome,
+  FiBook,
+  FiEdit,
+  FiMove,
+  FiSettings,
+  FiSlack,
+} from "react-icons/fi";
 import sideHeaderbg from "../../assets/sideHeaderbg-bg.png";
+import { useSelector } from "react-redux";
 
 const SideHeader = ({ isOpen, toggleSidebar }) => {
   const [isHovered, setIsHovered] = useState(false);
-
-  const expanded = isOpen || isHovered; // Expand sidebar on hover or toggle
+  const expanded = isOpen || isHovered;
+  const authStatus = useSelector((state) => state.auth.status);
 
   return (
     <aside
@@ -33,12 +42,14 @@ const SideHeader = ({ isOpen, toggleSidebar }) => {
               text="Home"
               expanded={expanded}
             />
-            <SidebarLink
-              to="/profile"
-              icon={<FiSettings />}
-              text="Profile"
-              expanded={expanded}
-            />
+            {authStatus && (
+              <SidebarLink
+                to="/profile"
+                icon={<FiSettings />}
+                text="Profile"
+                expanded={expanded}
+              />
+            )}
             <SidebarLink
               to="/quiz"
               icon={<FiBook />}
@@ -47,19 +58,19 @@ const SideHeader = ({ isOpen, toggleSidebar }) => {
             />
             <SidebarLink
               to="/customQuiz"
-              icon={<FiSettings />}
-              text="CreateQuiz"
+              icon={<FiEdit />}
+              text="Create Quiz"
               expanded={expanded}
             />
             <SidebarLink
               to="/questions"
-              icon={<FiVideo />}
+              icon={<FiMove />}
               text="Contribute"
               expanded={expanded}
             />
             <SidebarLink
               to="#"
-              icon={<FiPhone />}
+              icon={<FiSlack />}
               text="About"
               expanded={expanded}
             />
@@ -70,11 +81,16 @@ const SideHeader = ({ isOpen, toggleSidebar }) => {
   );
 };
 
+SideHeader.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  toggleSidebar: PropTypes.func.isRequired,
+};
+
 const SidebarLink = ({ to, icon, text, expanded }) => (
   <li>
     <NavLink
       to={to}
-      className={({ isActive }) =>
+      className={() =>
         `flex items-center p-2 rounded-lg transition-all duration-300 ${
           expanded ? "pl-4" : "justify-center"
         }`
@@ -85,5 +101,12 @@ const SidebarLink = ({ to, icon, text, expanded }) => (
     </NavLink>
   </li>
 );
+
+SidebarLink.propTypes = {
+  to: PropTypes.string.isRequired,
+  icon: PropTypes.node.isRequired,
+  text: PropTypes.string.isRequired,
+  expanded: PropTypes.bool.isRequired,
+};
 
 export default SideHeader;
