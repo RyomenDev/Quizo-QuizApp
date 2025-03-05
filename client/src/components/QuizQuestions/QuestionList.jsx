@@ -11,7 +11,7 @@ const QuestionList = ({ questions }) => {
 
   return (
     <div className="flex flex-wrap justify-center gap-6 p-6">
-      {questions.map((q, index) => (
+      {questions?.map((q, index) => (
         <div
           key={q._id}
           className="w-96 p-6 rounded-lg shadow-lg backdrop-blur-lg bg-gradient-to-br from-white/40 to-black/30"

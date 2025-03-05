@@ -68,20 +68,20 @@ const UserProfile = () => {
             {/* User Image and Details */}
             <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-md mt-12">
               <img
-                src={user.picture}
+                src={user?.picture}
                 alt="User"
                 className="w-20 h-20 rounded-full"
               />
             </div>
-            <h2 className="mt-4 text-3xl font-semibold">{user.name}</h2>
-            <p className="text-lg">{user.userType}</p>
+            <h2 className="mt-4 text-3xl font-semibold">{user?.name}</h2>
+            <p className="text-lg">{user?.userType}</p>
           </div>
 
           {/* Right Section */}
           <div className="flex flex-col justify-center gap-4 w-full lg:w-2/3 p-6">
             <div className="text-sm text-gray-700 space-y-2">
               <p>
-                <span className="font-bold text-lg">Email:</span> {user.email}
+                <span className="font-bold text-lg">Email:</span> {user?.email}
               </p>
               <p>
                 <span className="font-bold text-lg">Phone:</span>{" "}

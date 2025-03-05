@@ -66,7 +66,7 @@ const QuestionForm = ({ setQuestions, setShowForm }) => {
       />
 
       <label className="block font-semibold mt-4 text-white">Choices:</label>
-      {newQuestion.choices.map((choice, index) => (
+      {newQuestion?.choices?.map((choice, index) => (
         <InputField
           key={index}
           type="text"

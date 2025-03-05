@@ -56,8 +56,8 @@ const QuizResult = ({ score, quizData, selectedAnswers }) => {
                   outerRadius={100}
                   label
                 >
-                  {chartData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={entry.color} />
+                  {chartData?.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={entry?.color} />
                   ))}
                 </Pie>
               </PieChart>
@@ -74,7 +74,7 @@ const QuizResult = ({ score, quizData, selectedAnswers }) => {
               key={index}
               className="p-4 border border-white/40 rounded-3xl shadow-md bg-white/30 backdrop-blur-lg"
             >
-              <p className="font-medium">{q.question}</p>
+              <p className="font-medium">{q?.question}</p>
               <p>
                 Your Answer:{" "}
                 <span

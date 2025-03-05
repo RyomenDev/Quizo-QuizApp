@@ -75,7 +75,7 @@ const Quiz = () => {
               </p>
             ) : (
               <div className="w-full">
-                {questions.map((q) => (
+                {questions?.map((q) => (
                   <div
                     key={q._id}
                     className="border border-white/30 p-4 m-2 bg-white/10 backdrop-blur-md rounded-lg flex items-center shadow-md"

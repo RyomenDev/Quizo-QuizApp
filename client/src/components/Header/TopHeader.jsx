@@ -6,8 +6,8 @@ import { LogoutBtn, LoginButton, RegisterButton } from "../../utils";
 
 const Header = () => {
   const navigate = useNavigate();
-  const authStatus = useSelector((state) => state.auth.status);
-  const userData = useSelector((state) => state.auth.userData);
+  const authStatus = useSelector((state) => state?.auth?.status);
+  const userData = useSelector((state) => state?.auth?.userData);
 
   const userName = userData?.name;
 
@@ -104,9 +104,9 @@ const Header = () => {
             className="bg-gray-800 border border-gray-600 rounded-md py-2 px-3 text-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
             aria-label="Select Language"
           >
-            {languages.map((lang) => (
+            {languages?.map((lang) => (
               <option key={lang.code} value={lang.code} className="text-black">
-                {lang.name}
+                {lang?.name}
               </option>
             ))}
           </select>
