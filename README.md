@@ -1,8 +1,9 @@
 # 🚀 <u>Quizo: Online Quiz Platform</u>
-
 ## Overview
 
 The **Online Quiz Platform** is a full-stack web application designed for quiz creation, taking, and scoring. The platform provides a seamless user experience with **authentication, real-time timers, result analysis, and a practice mode**. Built using **React.js, Node.js, Express, and MongoDB**, the application ensures high performance, security, and scalability.
+
+![Image](https://github.com/user-attachments/assets/cb1bebb5-3a9c-4d5e-bcd0-71d3cb1a30bf)
 
 # Features
 
