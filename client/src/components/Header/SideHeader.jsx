@@ -35,7 +35,7 @@ const SideHeader = () => {
       <div className="absolute inset-0 bg-[#3B2F2F]/40 backdrop-blur-md"></div>
 
       {/* Navigation Links */}
-      <ul className="relative z-10 flex flex-col space-y-2">
+      <ul className="relative z-10 flex flex-col space-y-2 gap-2">
         {sideHeader.navItems(authStatus).map(
           (item) =>
             item.active && (

@@ -11,7 +11,7 @@ const LabelWithBorder = ({ text, index }) => {
         <polygon
           points="0,20 340,20 390,60 340,100 0,100"
           stroke="white"
-          fill="rgba(0, 50, 255, 0.3)"
+          fill="rgba(98, 26, 26, 0.4)"
           strokeWidth="1"
         />
       </svg>
