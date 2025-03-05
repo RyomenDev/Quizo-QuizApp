@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 // Apply security headers using Helmet
 app.use(
   helmet({
-    contentSecurityPolicy: false, // Disable CSP for now, configure it based on your app needs
+    contentSecurityPolicy: false, 
   })
 );
 
