@@ -69,7 +69,7 @@ const QuizResult = ({ score, quizData, selectedAnswers }) => {
         <h2 className="text-3xl font-semibold mt-6">Review Answers:</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-          {quizData.map((q, index) => (
+          {quizData?.map((q, index) => (
             <div
               key={index}
               className="p-4 border border-white/40 rounded-3xl shadow-md bg-white/30 backdrop-blur-lg"

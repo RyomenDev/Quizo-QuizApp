@@ -22,7 +22,7 @@ const QuestionList = ({ questions }) => {
           </h2>
 
           <ul className="space-y-2">
-            {q.choices.map((choice, i) => (
+            {q.choices?.map((choice, i) => (
               <li
                 key={i}
                 className="flex items-center gap-3 p-3 rounded-lg border border-white/30 

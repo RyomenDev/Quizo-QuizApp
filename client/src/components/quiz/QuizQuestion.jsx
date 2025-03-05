@@ -17,7 +17,7 @@ const QuizQuestion = ({
 
       {/* Options Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full mt-4">
-        {choices.map((choice, index) => (
+        {choices?.map((choice, index) => (
           <button
             key={index}
             className={`rounded-3xl text-lg sm:text-xl font-semibold transition-all duration-300 shadow-md px-6 py-3 ${
