@@ -53,8 +53,8 @@ const Quiz = () => {
         <CreateQuiz questions={selectedQuizQuestions} />
       ) : (
         <div className="">
-          <h1 className="text-5xl font-bold my-12">
-            Create Your Own Custom Quiz
+          <h1 className="text-5xl font-bold my-12 mx-8">
+            Create Custom Quiz
           </h1>
           <div className="backdrop-blur-md bg-black/40 shadow-lg rounded-2xl p-8 w-full max-w-2xl flex flex-col items-center border border-white/20">
             <h1 className="text-3xl font-bold text-white mb-6">
