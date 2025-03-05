@@ -39,14 +39,14 @@ The **Online Quiz Platform** is a full-stack web application designed for quiz c
 
 #### ✨ Features:
 
-✅ JWT verification for protected routes
-✅ Proper error handling
-✅ Modular structure
-✅ Timer for each question (30 seconds per question).
-✅ Multiple-choice selection with answer tracking.
-✅ Final score calculation with correct and wrong answers displayed.
-✅ Navigation between questions (Next/Submit button).
-✅ Displays number of questions and time per question.
+- ✅ JWT verification for protected routes
+- ✅ Proper error handling
+- ✅ Modular structure
+- ✅ Timer for each question (30 seconds per question).
+- ✅ Multiple-choice selection with answer tracking.
+- ✅ Final score calculation with correct and wrong answers displayed.
+- ✅ Navigation between questions (Next/Submit button).
+- ✅ Displays number of questions and time per question.
 
 ### **UI/UX Design**
 
@@ -56,11 +56,11 @@ The **Online Quiz Platform** is a full-stack web application designed for quiz c
 
 #### ✨ Features:
 
-✅ Background Image Slider
-✅ Dynamic Sliding Questions
-✅ Smooth Animations with Framer Motion
-✅ Beautiful Gradient & Glassmorphism UI
-✅ Responsive Design for All Devices
+- ✅ Background Image Slider
+- ✅ Dynamic Sliding Questions
+- ✅ Smooth Animations with Framer Motion
+- ✅ Beautiful Gradient & Glassmorphism UI
+- ✅ Responsive Design for All Devices
 
 ### **Responsiveness**
 
@@ -86,11 +86,11 @@ The **Online Quiz Platform** is a full-stack web application designed for quiz c
 
 #### ✨ Features:
 
-✅ Ensure proper validation before database Call.
-✅ Standardized lowercase email storage
-✅ Returned useful user details (excluding password)
-✅ Better error handling & debugging logs
-✅ Ensured password is not returned when fetching user details
+- ✅ Ensure proper validation before database Call.
+- ✅ Standardized lowercase email storage
+- ✅ Returned useful user details (excluding password)
+- ✅ Better error handling & debugging logs
+- ✅ Ensured password is not returned when fetching user details
 
 ### **Code Quality**
 
@@ -101,10 +101,10 @@ The **Online Quiz Platform** is a full-stack web application designed for quiz c
 
 #### ✨ Features:
 
-✅ prop-types validation in every component
-✅ Ensures correct data types and structure
-✅ Prevents potential runtime errors
-✅ Improves maintainability and debugging
+- ✅ prop-types validation in every component
+- ✅ Ensures correct data types and structure
+- ✅ Prevents potential runtime errors
+- ✅ Improves maintainability and debugging
 
 ### **Tech Stack**
 
