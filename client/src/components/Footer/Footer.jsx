@@ -4,7 +4,7 @@ import emailLogo from "../../assets/icons8-mail-50.png";
 function Footer() {
   return (
     <footer className="bg-gradient-to-b from-[#743d2b] via-[#5C4033] to-[#573e3e] text-white py-4 px-4">
-      <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <div className="flex items-center justify-center gap-4">
         <a
           href="https://www.linkedin.com/in/akash-mishra-2b2348224"
           target="_blank"
