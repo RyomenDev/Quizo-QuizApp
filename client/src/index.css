@@ -7,3 +7,11 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+.clip-rhombus {
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.clip-custom {
+    clip-path: polygon(0% 0%, 85% 0%, 100% 50%, 85% 100%, 0% 100%);
+}

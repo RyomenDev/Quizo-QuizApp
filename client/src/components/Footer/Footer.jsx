@@ -3,7 +3,7 @@ import emailLogo from "../../assets/icons8-mail-50.png";
 
 function Footer() {
   return (
-    <section className="footer bg-gray-800 text-white py-4">
+    <section className="footer bg-gradient-to-b from-[#743d2b] via-[#5C4033] to-[#573e3e] text-white py-4">
       <div className="footer-container flex justify-center gap-4 ">
         <a
           href="https://www.linkedin.com/in/akash-mishra-2b2348224"

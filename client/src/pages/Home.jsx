@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
@@ -16,7 +17,20 @@ const questions = [
 ];
 
 export default function HomePage() {
+  const navigate = useNavigate();
   const [currentQuestion, setCurrentQuestion] = useState(0);
+
+  // Auto-change questions every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentQuestion((prev) => (prev + 1) % questions.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleStartQuiz = () => {
+    navigate("/quiz");
+  };
 
   return (
     <div className="relative w-full h-screen text-white overflow-hidden">
@@ -41,9 +55,9 @@ export default function HomePage() {
       </Carousel>
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center px-4">
+      <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center px-6">
         <motion.h1
-          className="text-5xl md:text-7xl font-bold"
+          className="text-4xl md:text-6xl font-bold"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -51,10 +65,10 @@ export default function HomePage() {
           Quizo
         </motion.h1>
 
-        {/* Sliding Questions */}
+        {/* Auto-Sliding Questions */}
         <motion.p
           key={currentQuestion}
-          className="text-lg md:text-2xl mt-4"
+          className="text-lg md:text-2xl mt-4 max-w-xl"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -50 }}
@@ -70,7 +84,10 @@ export default function HomePage() {
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}
         >
-          <button className="px-6 py-3 text-lg bg-yellow-500 hover:bg-yellow-600 shadow-xl text-white rounded-md">
+          <button
+            className="px-6 py-3 text-lg bg-yellow-500 hover:bg-yellow-600 shadow-xl text-white rounded-md transition"
+            onClick={handleStartQuiz}
+          >
             Start Quiz
           </button>
         </motion.div>

@@ -8,6 +8,7 @@ import PasswordField from "./PasswordField.jsx";
 import ErrorDisplay from "./ErrorDisplay";
 import PasswordChecklist from "./PasswordChecklist.jsx";
 import { ValidatePassword, ValidateEmail } from "./Validations.jsx";
+import LabelWithBorder from "./SvgBorder.jsx"
 
 export {
   LogoutBtn,
@@ -21,4 +22,5 @@ export {
   PasswordChecklist,
   ValidatePassword,
   ValidateEmail,
+  LabelWithBorder,
 };

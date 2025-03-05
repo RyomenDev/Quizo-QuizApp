@@ -75,3 +75,15 @@ Features Added:
 ✅ Pie Chart: Shows correct vs. incorrect answers.
 ✅ Individual Question Review: Displays user's selected answers with correct ones.
 ✅ Styled Components: Responsive design using Tailwind CSS classes.
+
+
+✨ Features of the Update:
+✅ Glassmorphic Effect → Using backdrop-blur and bg-opacity.
+✅ Full-Screen Utilization → Larger text and better spacing.
+✅ Better Readability → Adjusted opacity and padding.
+
+
+🔹 What’s Changed?
+✔ Glassmorphic Effect: backdrop-blur-lg bg-white/10 border border-white/30 creates a frosted glass UI
+✔ Subtle Shadows: shadow-lg and shadow-md add depth
+✔ Smooth Hover Effects: Buttons highlight on hover

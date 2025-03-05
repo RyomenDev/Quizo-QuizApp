@@ -42,60 +42,70 @@ const UserProfile = () => {
     );
 
   return (
-    <div className="relative h-screen flex items-center justify-center">
-      {/* Background Image */}
+    <div className="relative h-screen flex items-center justify-center ">
+      {/* Background*/}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        // className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        // style={{
+        //   backgroundImage: `url(${bgImage})`,
+        //   backgroundBlendMode: "overlay",
+        // }}
+        className="absolute inset-0"
         style={{
-          backgroundImage: `url(${bgImage})`,
-          backgroundBlendMode: "overlay",
+          background: "linear-gradient(-30deg, #8B5A2B 50%, #DEB887 50%)",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
         }}
       />
-      <div className="relative bg-white/10 border border-white rounded-xl backdrop-blur-md p-6 shadow-xl">
-        <div className="bg-white shadow-lg rounded-lg flex w-[600px]">
-          {/* Left Sidebar */}
-          <div className="w-1/3 bg-gradient-to-b from-orange-400 to-red-500 text-white flex flex-col items-center justify-center p-6 rounded-l-lg">
-            <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-md">
+      <div className="relative bg-white/10 rounded-xl backdrop-blur-md p-4 shadow-xl w-3/4 ">
+        <div className="bg-white shadow-lg rounded-lg my-5 flex flex-col lg:flex-row w-full lg:w-4/5 mx-auto min-h-[60vh]">
+          {/* Left Section */}
+          <div className="relative w-full lg:w-1/2 bg-gradient-to-b from-orange-400 to-red-500 text-white flex flex-col items-center justify-center p-6 rounded-t-lg lg:rounded-l-lg lg:rounded-tr-none">
+            <h3 className="absolute top-4 left-4 text-3xl font-semibold p-2 rounded-md">
+              User Profile
+            </h3>
+
+            {/* User Image and Details */}
+            <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-md mt-12">
               <img
                 src={user.picture}
                 alt="User"
-                className="w-16 h-16 rounded-full"
+                className="w-20 h-20 rounded-full"
               />
             </div>
-            <h2 className="mt-4 text-lg font-semibold">{user.name}</h2>
+            <h2 className="mt-4 text-xl font-semibold">{user.name}</h2>
             <p className="text-sm">{user.userType}</p>
           </div>
 
           {/* Right Section */}
-          <div className="w-2/3 p-6">
-            <h3 className="text-lg font-semibold mb-3">Information</h3>
+          <div className="flex flex-col justify-center gap-4 w-full lg:w-2/3 p-6">
             <div className="text-sm text-gray-700 space-y-2">
               <p>
-                <span className="font-medium">Email:</span> {user.email}
+                <span className="font-bold text-lg">Email:</span> {user.email}
               </p>
               <p>
-                <span className="font-medium">Phone:</span>{" "}
+                <span className="font-bold text-lg">Phone:</span>{" "}
                 {user?.phone || "N/A"}
               </p>
               <p>
-                <span className="font-medium">Gender:</span>{" "}
+                <span className="font-bold text-lg">Gender:</span>{" "}
                 {user?.gender || "N/A"}
               </p>
               <p>
-                <span className="font-medium">Address:</span>{" "}
+                <span className="font-bold text-lg">Address:</span>{" "}
                 {user?.address || "N/A"}
               </p>
             </div>
 
             {/* Social Icons */}
-            <div className="mt-4 flex gap-4 justify-center text-gray-600">
-              <FaFacebookF className="cursor-pointer hover:text-blue-600" />
-              <FaTwitter className="cursor-pointer hover:text-blue-400" />
-              <FaInstagram className="cursor-pointer hover:text-pink-500" />
+            <div className="mt-4 flex gap-6 justify-center text-gray-600">
+              <FaFacebookF className="cursor-pointer hover:text-blue-600 text-xl" />
+              <FaTwitter className="cursor-pointer hover:text-blue-400 text-xl" />
+              <FaInstagram className="cursor-pointer hover:text-pink-500 text-xl" />
             </div>
 
             {/* Buttons */}
-            <div className="flex flex-wrap gap-2 mt-6">
+            <div className="flex flex-wrap gap-2 mt-6 justify-center">
               <LogoutBtn className="px-6 py-2 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition" />
               <button
                 onClick={handleResetPassword}

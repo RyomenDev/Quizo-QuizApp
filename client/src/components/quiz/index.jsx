@@ -3,6 +3,7 @@ import { fetchQuizQuestions } from "../../api";
 import QuizStart from "./QuizStart";
 import QuizQuestion from "./QuizQuestion";
 import QuizResult from "./QuizResult";
+const quizBg = "/images/quizQuestions.png";
 
 const QuizComponent = () => {
   const [quizData, setQuizData] = useState([]);
@@ -40,6 +41,8 @@ const QuizComponent = () => {
   }, [quizStarted, timer]);
 
   const handleAnswerSelect = (choice) => {
+    // console.log({ choice });
+
     setSelectedAnswers((prev) => ({
       ...prev,
       [currentQuestion]: choice,
@@ -86,26 +89,33 @@ const QuizComponent = () => {
   }
 
   return (
-    <div>
-      <h1 className="text-2xl font-bold">Quiz</h1>
-      {quizData.length > 0 && (
-        <QuizQuestion
-          question={quizData[currentQuestion].question}
-          choices={quizData[currentQuestion].choices}
-          timer={timer}
-          handleAnswerSelect={handleAnswerSelect}
-          selectedAnswer={selectedAnswers[currentQuestion]}
-        />
-      )}
-      <button
-        className="mt-4 px-4 py-2 bg-green-500 text-white rounded"
-        onClick={handleNextQuestion}
+    <>
+      <div
+        className="w-full h-screen bg-cover bg-center flex flex-col items-center justify-center text-white p-6"
+        style={{ backgroundImage: `url(${quizBg})` }}
       >
-        {currentQuestion === quizData.length - 1
-          ? "Submit Quiz"
-          : "Next Question"}
-      </button>
-    </div>
+        <h1 className="text-6xl  font-bold mb-6">Quiz</h1>
+
+        {quizData.length > 0 && (
+          <QuizQuestion
+            question={quizData[currentQuestion].question}
+            choices={quizData[currentQuestion].choices}
+            timer={timer}
+            handleAnswerSelect={handleAnswerSelect}
+            selectedAnswer={selectedAnswers[currentQuestion]}
+          />
+        )}
+
+        <button
+          className="mt-2 px-6 py-3 bg-green-500 hover:bg-green-600 transition text-white rounded-md shadow-lg"
+          onClick={handleNextQuestion}
+        >
+          {currentQuestion === quizData.length - 1
+            ? "Submit Quiz"
+            : "Next Question"}
+        </button>
+      </div>
+    </>
   );
 };
 
