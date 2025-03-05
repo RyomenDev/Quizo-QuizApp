@@ -19,7 +19,7 @@ const HeaderData = {
       { name: "Home", slug: "/", active: true },
       { name: "Profile", slug: "/profile", active: authStatus },
       { name: "Take Quiz", slug: "/quiz", active: true },
-      { name: "CreateQuiz", slug: "#", active: true },
+      { name: "CreateQuiz", slug: "/customQuiz", active: true },
       { name: "Contibute", slug: "/questions", active: true },
       //   { name: "Learn More", slug: "#", active: true },
       { name: "About", slug: "#", active: true },

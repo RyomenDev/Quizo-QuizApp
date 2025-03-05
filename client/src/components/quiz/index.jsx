@@ -74,6 +74,7 @@ const QuizComponent = () => {
       <QuizStart
         totalQuestions={quizData.length}
         startQuiz={() => setQuizStarted(true)}
+        Heading="Welcome to the Quiz"
       />
     );
   }
