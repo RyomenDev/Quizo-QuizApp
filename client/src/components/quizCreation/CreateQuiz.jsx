@@ -7,7 +7,7 @@ import QuizResult from "../quiz/QuizResult";
 const quizBg = "/images/quizQuestions.png";
 
 const Quiz = ({ questions }) => {
-  console.log({ questions });
+//   console.log({ questions });
 
   const [quizData, setQuizData] = useState(questions);
   const [quizStarted, setQuizStarted] = useState(false);

@@ -48,8 +48,7 @@ const QuestionForm = ({ setQuestions, setShowForm }) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="p-6 mt-4 w-96 rounded-lg shadow-lg border
-      bg-white/50 backdrop-blur-lg bg-gradient-to-br from-white/20 to-white/5"
+      className="p-6 mt-4 w-96 rounded-lg shadow-lg  backdrop-blur-lg bg-gradient-to-br from-white/50 to-white/5"
     >
       <h2 className="text-2xl font-semibold text-white mb-4 text-center">
         Add a New Question

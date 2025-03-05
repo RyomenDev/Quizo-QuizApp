@@ -14,10 +14,9 @@ const QuestionList = ({ questions }) => {
       {questions.map((q, index) => (
         <div
           key={q._id}
-          className="w-96 p-6 rounded-lg shadow-lg border border-white/30 
-      bg-white/10 backdrop-blur-lg bg-gradient-to-br from-white/20 to-white/5"
+          className="w-96 p-6 rounded-lg shadow-lg backdrop-blur-lg bg-gradient-to-br from-white/40 to-black/30"
         >
-          <h2 className="text-lg font-bold mb-3 text-balck drop-shadow-md">
+          <h2 className="text-lg font-bold mb-3 text-black drop-shadow-md">
             {index + 1}. {q.question}
           </h2>
 

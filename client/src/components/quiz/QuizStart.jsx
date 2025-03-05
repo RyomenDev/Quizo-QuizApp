@@ -9,7 +9,7 @@ const QuizStart = ({ totalQuestions, startQuiz, Heading }) => {
       style={{ backgroundImage: `url(${quizBg})` }}
     >
       {/* Glassmorphic Container */}
-      <div className="bg-slate-400 bg-opacity-15 backdrop-blur-md shadow-lg rounded-2xl p-10 md:p-14 max-w-2xl w-full border-opacity-20">
+      <div className="bg-slate-800 bg-opacity-15 backdrop-blur-md shadow-lg rounded-2xl p-10 md:p-14 max-w-2xl w-full border-opacity-20">
         <h1 className="text-4xl md:text-5xl font-bold mb-6 drop-shadow-lg">
           {Heading}
         </h1>
