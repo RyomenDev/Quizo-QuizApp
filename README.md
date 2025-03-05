@@ -53,6 +53,7 @@ The **Online Quiz Platform** is a full-stack web application designed for quiz c
 - **Modern and Intuitive Interface**: A clean, user-friendly interface designed with **Tailwind CSS**.
 - **Interactive Feedback**: Real-time feedback on user selections and results.
 - **Glassmorphism & Wooden Themes**: Stylish UI elements with background blur effects and custom textures.
+- **Better Shimmer Effect:** smooth skeleton while loading for visually appealing! .
 
 #### ✨ Features:
 
