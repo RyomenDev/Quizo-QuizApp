@@ -4,6 +4,7 @@ import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
 import helmet from "helmet";
 import conf from "./conf/conf.js";
+import path from "path";
 
 const app = express();
 app.use(bodyParser.json());
@@ -50,7 +51,8 @@ app.use((req, res, next) => {
 
 // Middleware for parsing JSON, cookies, and serving static files
 app.use(express.json());
-app.use(express.static("public"));
+// app.use(express.static("public"));
+app.use(express.static(path.join(process.cwd(), "public")));
 app.use(cookieParser());
 
 // Routes

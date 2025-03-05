@@ -1,9 +1,11 @@
 import fs from "fs/promises";
+import path from "path";
 
 export const quizQuestions = async (req, res) => {
   try {
     // console.log("Fetching quiz questions...");
-    const data = await fs.readFile("quiz.json", "utf8");
+    const filePath = path.join(process.cwd(), "public", "quiz.json");
+    const data = await fs.readFile(filePath, "utf8");
     const quiz = JSON.parse(data);
     res.json(quiz);
   } catch (error) {
