@@ -1,14 +1,21 @@
 import fs from "fs/promises";
 import path from "path";
 
+import FixedQuestions from "../models/fixedQuestions.model.js";
+
 export const quizQuestions = async (req, res) => {
   try {
-    // console.log("Fetching quiz questions..."); 
+    // console.log("Fetching quiz questions...");
+    // const filePath = path.join(process.cwd(), "public", "quiz.json");
+    // const data = await fs.readFile(filePath, "utf8");
+    // const quiz = JSON.parse(data);
 
-    const filePath = path.join(process.cwd(), "public", "quiz.json");
-    const data = await fs.readFile(filePath, "utf8");
-    const quiz = JSON.parse(data);
-    res.json(quiz);
+    // res.json(quiz);
+
+    const quizzes = await Quiz.find({});
+    // console.log({ quizzes });
+
+    res.json(quizzes);
   } catch (error) {
     console.error("Error loading quiz:", error.message);
     res.status(500).json({
@@ -50,7 +57,6 @@ export const addQuestion = async (req, res) => {
   }
 };
 
-
 // Delete a quiz question
 export const deleteQuestion = async (req, res) => {
   try {
@@ -61,4 +67,3 @@ export const deleteQuestion = async (req, res) => {
     res.status(500).json({ message: "Error deleting quiz question", error });
   }
 };
-
