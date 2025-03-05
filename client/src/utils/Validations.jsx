@@ -1,6 +1,6 @@
 export const ValidateEmail = (email) => {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
+  const emailRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+  return emailRegex.test(email.toLowerCase());
 };
 
 export const ValidatePassword = (password) => {
