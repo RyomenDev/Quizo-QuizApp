@@ -24,22 +24,18 @@ const SideHeader = () => {
   const { sideHeader } = HeaderData;
 
   return (
-    // <header
-    //   className="flex flex-col h-screen p-4 bg-gray-100 shadow-lg"
-    //   style={{ backgroundImage: `url(${sideHeaderbg})` }}
-    // >
     <header
-      className="h-screen p-4 bg-gray-100 shadow-lg bg-cover bg-center bg-gradient-to-b from-[#4E2A1E] via-[#5C4033] to-[#3B2F2F]"
+      className="relative h-screen p-4 shadow-lg bg-cover bg-center bg-no-repeat border border-[#4E2A1E] rounded-lg"
       style={{
         backgroundImage: `url(${sideHeaderbg})`,
-        //
+        backgroundColor: "#5C4033",
       }}
     >
-      {/* Background Overlay with Blur Effect */}
-      {/* <div className="absolute inset-0 bg-black/2 backdrop-blur-xl"></div> */}
+      {/* Semi-Transparent Wooden Overlay for Depth */}
+      <div className="absolute inset-0 bg-[#3B2F2F]/40 backdrop-blur-md"></div>
 
       {/* Navigation Links */}
-      <ul className="flex flex-col space-y-2">
+      <ul className="relative z-10 flex flex-col space-y-2">
         {sideHeader.navItems(authStatus).map(
           (item) =>
             item.active && (
@@ -49,7 +45,7 @@ const SideHeader = () => {
                     setIsMenuOpen(false);
                     navigate(item.slug);
                   }}
-                  className="w-full px-4 py-2 text-lg font-medium rounded-lg hover:bg-blue-500 hover:text-white transition duration-300"
+                  className="w-full px-4 py-2 text-lg font-semibold rounded-lg bg-[#4E2A1E]/70 text-white hover:bg-[#6B4226] hover:text-yellow-200 transition duration-300 border border-[#5C4033] shadow-md"
                 >
                   {item.name}
                 </button>
@@ -57,9 +53,17 @@ const SideHeader = () => {
             )
         )}
       </ul>
+    </header>
+  );
+};
 
-      {/* Auth & Support Links */}
-      {/* <div className="mt-auto">
+export default SideHeader;
+
+{
+  /* Auth & Support Links */
+}
+{
+  /* <div className="mt-auto">
         <ul className="space-y-2">
           {sideHeader.authItems(authStatus).map(
             (item) =>
@@ -84,9 +88,5 @@ const SideHeader = () => {
               )
           )}
         </ul>
-      </div> */}
-    </header>
-  );
-};
-
-export default SideHeader;
+      </div> */
+}

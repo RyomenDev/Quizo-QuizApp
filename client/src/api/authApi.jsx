@@ -5,8 +5,10 @@ import axios from "axios";
 const API_BASE_URL = `${conf.server_url}/api/auth`;
 
 export const loginUser = async (email, password) => {
+  //   console.log({ email, password });
+
   try {
-    const response = await axios.get(`${API_BASE_URL}/login`, {
+    const response = await axios.post(`${API_BASE_URL}/login`, {
       email,
       password,
     });

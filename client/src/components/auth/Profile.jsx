@@ -52,7 +52,7 @@ const UserProfile = () => {
         // }}
         className="absolute inset-0"
         style={{
-          background: "linear-gradient(-30deg, #8B5A2B 50%, #DEB887 50%)",
+          background: "linear-gradient(-30deg, #663e27 50%, #947d70  50%)",
           backgroundPosition: "center",
           backgroundSize: "cover",
         }}
@@ -60,7 +60,7 @@ const UserProfile = () => {
       <div className="relative bg-white/10 rounded-xl backdrop-blur-md p-4 shadow-xl w-3/4 ">
         <div className="bg-white shadow-lg rounded-lg my-5 flex flex-col lg:flex-row w-full lg:w-4/5 mx-auto min-h-[60vh]">
           {/* Left Section */}
-          <div className="relative w-full lg:w-1/2 bg-gradient-to-b from-orange-400 to-red-500 text-white flex flex-col items-center justify-center p-6 rounded-t-lg lg:rounded-l-lg lg:rounded-tr-none">
+          <div className="relative w-full lg:w-1/2 bg-gradient-to-b from-amber-950 to-red-500 text-white flex flex-col items-center justify-center p-6 rounded-t-lg lg:rounded-l-lg lg:rounded-tr-none">
             <h3 className="absolute top-4 left-4 text-3xl font-semibold p-2 rounded-md">
               User Profile
             </h3>
@@ -73,8 +73,8 @@ const UserProfile = () => {
                 className="w-20 h-20 rounded-full"
               />
             </div>
-            <h2 className="mt-4 text-xl font-semibold">{user.name}</h2>
-            <p className="text-sm">{user.userType}</p>
+            <h2 className="mt-4 text-3xl font-semibold">{user.name}</h2>
+            <p className="text-lg">{user.userType}</p>
           </div>
 
           {/* Right Section */}

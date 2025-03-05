@@ -41,6 +41,8 @@ const Login = () => {
         alt="login background"
         className="absolute inset-0 w-full h-full object-cover"
       />
+      {/* Semi-Transparent Wooden Overlay for Depth */}
+      {/* <div className="absolute inset-0 bg-[#3B2F2F]/10 backdrop-blur-md"></div> */}
 
       <div className="relative bg-white/10 border-2 border-white mx-6 p-8 rounded-xl backdrop-blur-md sm:w-[400px] sm:p-12">
         <h1 className="text-center text-2xl font-medium text-gray-900 mb-8">

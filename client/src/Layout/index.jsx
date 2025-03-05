@@ -35,7 +35,7 @@ const Layout = () => {
                 isSidebarOpen
                   ? "block bg-white z-50 fixed h-full w-2/4 md:w-1/3 sm:w-1/2"
                   : "hidden"
-              } lg:block lg:relative lg:w-1/6 bg-gray-100 border-r-4 transition-all duration-300`}
+              } lg:block lg:relative lg:w-1/6 bg-gray-100 transition-all duration-300`}
             >
               <SideHeader />
             </div>
